@@ -19,14 +19,14 @@
   "author": "boost_dgm01",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@polkadot/api": "^6",
-    "@subql/types": "latest",
+    "@polkadot/api": "6.4.1",
+    "@subql/types": "0.10.0",
     "typescript": "4.4.4",
-    "@subql/cli": "latest"
+    "@subql/cli": "0.15.0"
   },
   "dependencies": {
     "@subql/contract-processors": "^0.3.0",
-    "@subql/types": "^0.10.0",
+    "@subql/types": "0.10.0",
     "ethers": "^5.5.0"
   }
 }
