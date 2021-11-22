@@ -1,0 +1,58 @@
+type Collection @entity {
+  id: ID!
+  volumeOverall: BigInt!
+  floor: BigInt!
+  ceiling: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+  tokenId: BigInt!
+  collection: Collection! @index
+  currentAsk: BigInt!
+  heighestBid: BigInt!
+  lowestBid: BigInt!
+}
+
+type Ask @entity {
+  id: ID!
+  token: Token! @index
+  collection: Collection! @index
+  value: BigInt!
+  timestamp: BigInt!
+  txHash: String!
+}
+
+type Bid @entity {
+  id: ID!
+  token: Token! @index
+  collection: Collection! @index
+  value: BigInt!
+  buyer: String!
+  timestamp: BigInt!
+  txHash: String!
+}
+
+type Fill @entity {
+  id: ID!
+  token: Token! @index
+  collection: Collection! @index
+  value: BigInt!
+  buyer: String!
+  type: String!
+  timestamp: BigInt!
+}
+
+type AskHistory @entity {
+  id: ID!
+  token: Token! @index
+  collection: Collection! @index
+  value: BigInt!
+  timestamp: BigInt!
+  accepted: Boolean!
+}
+
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+}

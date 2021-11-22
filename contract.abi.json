@@ -1,0 +1,1296 @@
+[
+    {
+        "type": "event",
+        "name": "BidCancelled",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "token",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "id",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "buyer",
+                "internalType": "address",
+                "indexed": false
+            },
+            {
+                "type": "bool",
+                "name": "escrowed",
+                "internalType": "bool",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "timestamp",
+                "internalType": "uint256",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "BidPlaced",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "token",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "id",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "buyer",
+                "internalType": "address",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "timestamp",
+                "internalType": "uint256",
+                "indexed": false
+            },
+            {
+                "type": "bool",
+                "name": "escrowed",
+                "internalType": "bool",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "EscrowReturned",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "user",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256",
+                "indexed": true
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "OwnershipTransferred",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "previousOwner",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "newOwner",
+                "internalType": "address",
+                "indexed": true
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TokenDelisted",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "token",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "id",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "timestamp",
+                "internalType": "uint256",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TokenListed",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "token",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "id",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "timestamp",
+                "internalType": "uint256",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TokenPurchased",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "oldOwner",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "newOwner",
+                "internalType": "address",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "collection",
+                "internalType": "address",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "RecoverMOVR",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "to",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "amount",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ],
+        "name": "TOKEN",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "acceptOffer",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256"
+            },
+            {
+                "type": "address",
+                "name": "from",
+                "internalType": "address"
+            },
+            {
+                "type": "bool",
+                "name": "escrowedBid",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "payable",
+        "outputs": [],
+        "name": "addMoneyToEscrow",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ],
+        "name": "beanBuybackAddress",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "beanBuybackFee",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ],
+        "name": "beanieHolderAddress",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "beanieHolderFee",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "cancelOffer",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256"
+            },
+            {
+                "type": "bool",
+                "name": "escrowed",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "checkEscrowAmount",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "user",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "clearAllBids",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "clearAllListings",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "clearBidsAfterAcceptingOffer",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "defaultCollectionOwnerFee",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "delistAfterAcceptingOffer",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "delistToken",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ],
+        "name": "devAddress",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "devFee",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ],
+        "name": "featuredCollection",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "feesOn",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "payable",
+        "outputs": [],
+        "name": "fulfillListing",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "getCollectionFee",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ],
+        "name": "getCollectionOwner",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "tuple",
+                "name": "",
+                "internalType": "struct MarketPlace.Listing",
+                "components": [
+                    {
+                        "type": "uint256",
+                        "name": "price",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "timestamp",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "tokenId",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "bool",
+                        "name": "accepted",
+                        "internalType": "bool"
+                    }
+                ]
+            }
+        ],
+        "name": "getCurrentListing",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "getCurrentListingPrice",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "getEscrowedAmount",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "user",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "tuple[]",
+                "name": "",
+                "internalType": "struct MarketPlace.Offer[]",
+                "components": [
+                    {
+                        "type": "uint256",
+                        "name": "price",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "timestamp",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "bool",
+                        "name": "accepted",
+                        "internalType": "bool"
+                    },
+                    {
+                        "type": "address",
+                        "name": "buyer",
+                        "internalType": "address"
+                    },
+                    {
+                        "type": "bool",
+                        "name": "escrowed",
+                        "internalType": "bool"
+                    }
+                ]
+            }
+        ],
+        "name": "getOffers",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "tuple[]",
+                "name": "",
+                "internalType": "struct MarketPlace.Listing[]",
+                "components": [
+                    {
+                        "type": "uint256",
+                        "name": "price",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "timestamp",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "tokenId",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "type": "bool",
+                        "name": "accepted",
+                        "internalType": "bool"
+                    }
+                ]
+            }
+        ],
+        "name": "getTokenListingHistory",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "isCollectionTrading",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "isListed",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "listToken",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "payable",
+        "outputs": [],
+        "name": "makeEscrowedOffer",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "makeOffer",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            },
+            {
+                "type": "uint256",
+                "name": "price",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [
+            {
+                "type": "bytes4",
+                "name": "",
+                "internalType": "bytes4"
+            }
+        ],
+        "name": "onERC721Received",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            },
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            },
+            {
+                "type": "bytes",
+                "name": "",
+                "internalType": "bytes"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ],
+        "name": "owner",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "recoverNFT",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_token",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "recoverToken",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_token",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "amount",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "renounceOwnership",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setBeanBuyBackFee",
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "fee",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setBeanBuybackAddress",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setBeanieHolderAddress",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setBeanieHolderFee",
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "fee",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setClearBidsAfterAcceptingOffer",
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "_value",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setCollectionOwner",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "address",
+                "name": "owner",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setCollectionOwnerFee",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "uint256",
+                "name": "fee",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setCollectionTrading",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "ca",
+                "internalType": "address"
+            },
+            {
+                "type": "bool",
+                "name": "value",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setDelistAfterAcceptingOffer",
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "_value",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setDevAddress",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setDevFee",
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "fee",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setFeaturedCollection",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "_collection",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setFeesOn",
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "_value",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setSpecialGasTax",
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "gasAmount",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setSuperGasTaxes",
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "value",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "setTrading",
+        "inputs": [
+            {
+                "type": "bool",
+                "name": "value",
+                "internalType": "bool"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "specialTaxGas",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "totalEscrowedAmount",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": "",
+                "internalType": "uint256"
+            }
+        ],
+        "name": "totalFees",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "tradingPaused",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "transferOwnership",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "newOwner",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "useSuperGasTaxes",
+        "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "withdrawMoneyFromEscrow",
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "amount",
+                "internalType": "uint256"
+            }
+        ]
+    },
+    {
+        "type": "receive",
+        "stateMutability": "payable"
+    }
+]

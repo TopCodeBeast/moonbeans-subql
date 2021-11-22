@@ -1,0 +1,65 @@
+specVersion: "0.2.0"
+
+name: "Moonbeans Marketplace"
+version: "1.0.0"
+description: "Moonbeans Marketplace Transactions"
+repository: "https://github.com/boostdmg01/moonbeans-bot"
+
+schema:
+  file: "./schema.graphql"
+
+network:
+  genesisHash: '0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b' # Genesis hash of Moonriver
+  endpoint: wss://moonriver.api.onfinality.io/public-ws
+
+  chaintypes:
+    file: "./types.yaml"
+
+dataSources:
+  - kind: substrate/Moonbeam
+    startBlock: 817352
+    processor:
+      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      options:
+        abi: contract
+        address: '0x16d7Edd3A562BB60aA0B3Af357A2c195cE2AA974'
+    assets:
+      contract:
+        file: './contract.abi.json'
+    mapping:
+      file: './dist/index.js'
+      handlers:
+        - handler: handleFillAsk
+          kind: substrate/MoonbeamCall
+          filter:
+            function: fulfillListing(address,uint256)
+
+        - handler: handleFillBid
+          kind: substrate/MoonbeamCall
+          filter:
+            function: acceptOffer(address,uint256,uint256,address,bool)
+
+        - handler: handleTokenListed
+          kind: substrate/MoonbeamCall
+          filter:
+            function: listToken(address,uint256,uint256)
+
+        - handler: handleTokenDelisted
+          kind: substrate/MoonbeamCall
+          filter:
+            function: delistToken(address,uint256)
+
+        - handler: handleBidCancelled
+          kind: substrate/MoonbeamCall
+          filter:
+            function: cancelOffer(address,uint256,uint256,bool)
+
+        - handler: handleBidPlaced
+          kind: substrate/MoonbeamCall
+          filter:
+            function: makeEscrowedOffer(address,uint256,uint256)
+
+        - handler: handleCollectionEnabled
+          kind: substrate/MoonbeamCall
+          filter:
+            function: setCollectionTrading(address,bool) 
