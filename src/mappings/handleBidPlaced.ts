@@ -1,4 +1,4 @@
-import { Bid, Token, Transaction } from "../types";
+import { Bid, Token, Transaction, Collection } from "../types";
 import { MoonbeamCall } from '@subql/contract-processors/dist/moonbeam';
 import { BigNumber } from "ethers";
 
@@ -13,6 +13,16 @@ export async function handleBidPlaced(event: MoonbeamCall<BidPlacedCallrgs>): Pr
     const id = `${event.args.ca}-${event.args.tokenId.toBigInt()}`;
     const bidId = `${event.args.ca}-${event.args.tokenId.toBigInt()}-${event.from}-${event.hash}`;
     const price = event.args.price.toBigInt();
+
+    // CREATE OR GET COLLECTION
+    let collection = await Collection.get(event.args.ca);
+    if (typeof collection === 'undefined') {
+        collection = new Collection(event.args.ca);
+        collection.ceiling = BigInt(0);
+        collection.floor = BigInt(0);
+        collection.volumeOverall = BigInt(0);
+        await collection.save();
+    }
 
     // SAVE OR UPDATE TOKEN
     let token = await Token.get(id);

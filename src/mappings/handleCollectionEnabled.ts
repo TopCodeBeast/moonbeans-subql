@@ -19,7 +19,7 @@ export async function handleCollectionEnabled(event: MoonbeamCall<CollectionEnab
 
         logger.info(`[COLLECTION ENABLED] tx: ${event.hash}; collection: ${event.args.ca}; value: ${event.args.value}`)
     } else {
-        logger.error(`[COLLECTION ENABELED] failed! tx: ${event.hash}; collection: ${event.args.ca}; value: ${event.args.value}`)
+        logger.error(`[COLLECTION ENABELED] already exists! tx: ${event.hash}; collection: ${event.args.ca}; value: ${event.args.value}`)
     }
 
     // SAVE TRANSACTION

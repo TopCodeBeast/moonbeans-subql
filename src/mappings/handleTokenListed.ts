@@ -14,6 +14,16 @@ export async function handleTokenListed(event: MoonbeamCall<TokenListedCallArgs>
     const askHistoryId  = `${event.args.ca}-${event.args.tokenId.toBigInt()}-${event.hash}`;
     const price = event.args.price.toBigInt();
 
+    // CREATE OR GET COLLECTION
+    let collection = await Collection.get(event.args.ca);
+    if (typeof collection === 'undefined') {
+        collection = new Collection(event.args.ca);
+        collection.ceiling = BigInt(0);
+        collection.floor = BigInt(0);
+        collection.volumeOverall = BigInt(0);
+        await collection.save();
+    }
+
     // SAVE OR UPDATE TOKEN
     let token = await Token.get(id);
     if (typeof token === 'undefined') {
@@ -30,7 +40,6 @@ export async function handleTokenListed(event: MoonbeamCall<TokenListedCallArgs>
     }
 
     // UPDATE COLLECTION
-    let collection = await Collection.get(token.collectionId);
     let collectionUpdate = false;
     if (collection.ceiling <= price) {
         collection.ceiling = price;
