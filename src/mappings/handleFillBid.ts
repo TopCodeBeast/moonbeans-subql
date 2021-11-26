@@ -1,4 +1,4 @@
-import { Bid, Fill, Transaction, Token, Collection } from "../types";
+import { Bid, Fill, Transaction, Token, Collection, AskHistory, Ask } from "../types";
 import { getTokenPrices } from "../utils";
 import { MoonbeamCall } from '@subql/contract-processors/dist/moonbeam';
 import { BigNumber } from "ethers";
@@ -37,11 +37,27 @@ export async function handleFillBid(event: MoonbeamCall<FillBidCallArgs>): Promi
         // REMOVE CURRENT BID
         await Bid.remove(bid.id);
 
+        // REMOVE CURRENT ASK IF LISTED
+        let ask = await Ask.get(id);
+        if (typeof ask !== 'undefined') {
+            await Ask.remove(id);
+
+            // SAVE DELIST TO ASK HISTORY
+            let newAskHistory = new AskHistory(fillId);
+            newAskHistory.tokenId = id;
+            newAskHistory.collectionId = event.args.ca;
+            newAskHistory.value = BigInt(0);
+            newAskHistory.timestamp = BigInt(event.timestamp);
+            newAskHistory.accepted = false;
+            await newAskHistory.save();
+        }
+
         // UPDATE TOKEN
         let token = await Token.get(id);
         let [lowestBid, heighestBid] =  await getTokenPrices(id);
         token.lowestBid = lowestBid;
         token.heighestBid = heighestBid;
+        token.currentAsk = BigInt(0);
         await token.save();
 
         // UPDATE COLLECTION
