@@ -11,6 +11,8 @@ schema:
 network:
   genesisHash: '0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b' # Genesis hash of Moonriver
   endpoint: wss://moonriver.api.onfinality.io/public-ws
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: https://api.subquery.network/sq/subquery/moonriver-dictionary
 
   chaintypes:
     file: "./types.yaml"
